@@ -31,7 +31,21 @@ app.post('/register',(req,res) => {
             success:true
         })
     })
+})
 
+app.post('/login', (req, res) => {
+    User.findOne({ email:req.body.email },(err, userInfo) => {
+        if(!userInfo){
+            return res.json({
+                loginSuccess:false,
+                message:"No users"
+            })
+        }
+
+        user.comparePassword(req.body.password , (err, isMatch ) => {
+
+        })
+    })
 })
 
 app.listen(port, () => console.log(`port = ${port}`))
