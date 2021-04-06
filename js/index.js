@@ -3,11 +3,13 @@ const app = express()
 const port = 5000
 const bodyParser = require('body-parser')
 const { User }= require('./models/User')
-
+const cookieParser = require('cookie-parser')
 const config = require('./config/key')
+const { auth } = require('./middleware/auth')
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 
 const mongoose = require('mongoose')
@@ -21,7 +23,7 @@ mongoose.connect(config.mongoURI,{
 
 app.get('/', ((req, res) => res.send('Hello!!')))
 
-app.post('/register',(req,res) => {
+app.post('/api/users/register',(req,res) => {
 
     const user = new User(req.body)
 
@@ -33,20 +35,35 @@ app.post('/register',(req,res) => {
     })
 })
 
-app.post('/login', (req, res) => {
-    User.findOne({ email:req.body.email },(err, userInfo) => {
-        if(!userInfo){
+app.post('/api/users/login', (req, res) => {
+    User.findOne({ email:req.body.email },(err, user) => {
+        console.log(user)
+        if(!user){
             return res.json({
                 loginSuccess:false,
                 message:"No users"
             })
         }
 
-        user.comparePassword(req.body.password , (err, isMatch ) => {
+        user.comparePassword(req.body.password , (err, isMatch) => {
+            console.log(isMatch)
+            if(!isMatch)
+                return res.json({loginSuccess:false, message:"Wrong password"})
+            user.generateToken((err, user) => {
+                if(err)return res.status(400).send(err)
+                // Saving token -> Cookie or Local storage
+                res.cookie("x_auth", user.token)
+                    .status(200)
+                    .json({loginSuccess:true, userId:user._id})
 
+            })
         })
     })
 })
+
+app.get('/api/users/auth', auth, ((req, res) => {
+
+}))
 
 app.listen(port, () => console.log(`port = ${port}`))
 
