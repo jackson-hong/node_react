@@ -35,10 +35,8 @@
  })
 
  userSchema.pre('save', function(next){
-     console.log('????')
      let user = this
      if(user.isModified('password')){
-         console.log('jackson')
          bcrypt.genSalt(saltRounds, function(err, salt){
              if(err) return next(err)
              bcrypt.hash(user.password, salt, function(err, hash){
@@ -77,12 +75,13 @@ userSchema.methods.generateToken = function(cb){
 userSchema.statics.findMyToken = function(token, cb){
     var user = this;
 
+    //decoding token
     jwt.verify(token, 'secretToken', function(err, decoded){
         //find user with userid
 
         user.findOne({"_id":decoded ,"token":token}, function(err,user){
             if (err) return cb(err)
-
+            cb(null, user)
         })
     })
 }
