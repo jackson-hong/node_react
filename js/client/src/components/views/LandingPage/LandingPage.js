@@ -8,8 +8,9 @@ function LandingPage(){
     },[])
 
     return (
-        <div>
-            LandingPage
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center',
+        width:'100%', height:'100vh'}}>
+            시작페이지
         </div>
     )
 }

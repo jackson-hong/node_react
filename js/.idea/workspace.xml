@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068d04aa-aad1-42f6-a949-f2c74a4456f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/_reducer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/_action/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/_action/user_action.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/_reducer/user_reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/_reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_reducer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/views/LandingPage/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/views/LandingPage/LandingPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/views/LoginPage/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/views/LoginPage/LoginPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +50,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/_action" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/server" />
     </key>
@@ -66,7 +68,7 @@
       <workItem from="1617916218317" duration="3845000" />
       <workItem from="1618175934083" duration="3259000" />
       <workItem from="1618261959137" duration="1935000" />
-      <workItem from="1618264086626" duration="359000" />
+      <workItem from="1618264086626" duration="3855000" />
     </task>
     <servers />
   </component>

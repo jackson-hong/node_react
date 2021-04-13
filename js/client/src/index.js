@@ -8,7 +8,7 @@ import 'antd/dist/antd.css'
 import {applyMiddleware, createStore} from "redux";
 import promiseMiddleware from "redux-promise"
 import reduxThunk from "redux-thunk"
-import reducer from './_reducer/index'
+import reducer from './_reducer'
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, reduxThunk)(createStore)
 
